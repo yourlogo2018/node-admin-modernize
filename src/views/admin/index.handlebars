@@ -1,0 +1,79 @@
+<div class="card bg-light-info shadow-none position-relative overflow-hidden" id="welcome-message">
+    <div class="card-body px-4 py-3">
+        <div class="row align-items-center">
+        <div class="col-9">
+            <h4 class="fw-semibold mb-8">Seja bem vindo {{user.name}}</h4>
+            <nav aria-label="breadcrumb">
+            <ol class="breadcrumb">
+                <li class="breadcrumb-item"><a class="text-muted" href="javascript:void(0)">Quantidade instancias: <span id="count">{{count}}</span></a></li>
+
+            </ol>
+            </nav>
+        </div>
+        <div class="col-3">
+            <div class="text-center mb-n5">  
+            <img src="dist/images/breadcrumb/head7_rock.png" alt="" class="img-fluid mb-n2" style="width: 50%;">
+            </div>
+        </div>
+        </div>
+    </div>
+</div>
+
+<div class="card">
+    <div class="card-body">
+        
+        <h5 class="mb-3">Nova instância</h5>
+
+        <div class="row">
+        <div class="col-md-6">
+            <div class="form-floating mb-3">
+            <input type="text" class="form-control" id="client-id" placeholder="ID da instância">
+            <label for="client-id">ID</label>
+            </div>
+        </div>
+        <div class="col-md-6">
+            <div class="form-floating mb-3">
+            <input type="text" class="form-control" id="client-description" placeholder="Nome da sua instância">
+            <label for="client-description">Nome Instância</label>
+            </div>
+        </div>
+        <div class="col-md-12">
+            <div class="form-floating">
+            <input type="url" class="form-control" id="client-webhook" placeholder="Link webhook">
+            <label for="client-webhook">Webhook</label>
+            </div>
+        </div>
+        <div class="col-12">
+            <div class="d-md-flex align-items-center mt-3">
+            <div class="ms-auto mt-3 mt-md-0">
+                <button class="btn btn-info font-medium rounded-pill px-4">
+                <div class="d-flex align-items-center add-client-btn">
+                    <i class="ti ti-send me-2 fs-4"></i>
+                    Criar instância
+                </div>
+                </button>
+            </div>
+            </div>
+        </div>
+        </div>
+    
+    </div>
+</div>
+
+<div class="row client-container">
+    <div class="col-sm-6 col-lg-3 client hide">
+        <div class="card">
+            <div class="card-body p-4">
+                <h3 class="title"></h3>
+                <p class="description"></p>
+                <img src="" id="qrcode" style="width: 100%;">
+                <h5>Logs:</h5>
+                <ul class="logs"></ul>
+                <button class="btn bg-primary text-white mb-3 w-100 btn-logout">Logout</button>
+                <button class="btn bg-light-secondary text-secondary w-100 btn-remove">Remove</button>
+			</div>
+        
+        </div>
+    </div>
+</div>
+
