@@ -10,6 +10,27 @@ class Model {
         }
     }
 
+    static async upsertByField(table, field, value, data) {
+        try {
+            const q = query(db.collection(table), where(field, '==', value), limit(1));
+            const querySnapshot = await getDocs(q);
+
+            if (!querySnapshot.empty) {
+                // Documento encontrado, atualize-o
+                const docId = querySnapshot.docs[0].id;
+                const docRef = doc(db, table, docId);
+                await setDoc(docRef, data, { merge: true });
+                return { id: docId, ...data };
+            } else {
+                // Documento não encontrado, crie um novo
+                const ref = await db.collection(table).add(data);
+                return { id: ref.id, ...data };
+            }
+        } catch (err) {
+            throw err; // Erro
+        }
+    }
+
     static async select(table) {
         try {
             const snapshot = await db.collection(table).get();
